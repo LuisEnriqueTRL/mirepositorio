@@ -37,7 +37,7 @@ async function fetchPokemons(page = 1) {
 }
 
 //GET
-//http://localhost:3000/pokemons?page=1
+//http://localhost:3000/pokemons?page=12
 // Ruta para obtener Pokémon por página
 app.get('/pokemons', async (req, res) => {
     const page = parseInt(req.query.page) || 1;  // Toma la página de la query o usa la página 1 por defecto
