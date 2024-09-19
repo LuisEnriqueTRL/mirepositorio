@@ -2,17 +2,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Entrenadores', {
+    await queryInterface.createTable('trainers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nombre_entrenador: {
+      trainer_name: {
         type: Sequelize.STRING
       },
-      edad_entrenador: {
+      trainer_age: {
         type: Sequelize.INTEGER
       },
       num_pokedex: {
@@ -25,10 +25,13 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      deletedAt: {
+        type: Sequelize.DATE
       }
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Entrenadores');
+    await queryInterface.dropTable('trainers');
   }
 };

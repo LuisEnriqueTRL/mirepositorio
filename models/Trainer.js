@@ -1,14 +1,14 @@
 const { DataTypes, Model } = require('sequelize');
 const sequelize = require('../config/database');
 
-class Entrenador extends Model {}
+class Trainer extends Model {}
 
-Entrenador.init({
-    nombre_entrenador: {
+Trainer.init({
+    trainer_name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    edad_entrenador: {
+    trainer_age: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
@@ -18,10 +18,10 @@ Entrenador.init({
     },
 }, {
     sequelize,
-    modelName: 'Entrenador',
-    tableName: 'entrenadores',
+    modelName: 'Trainer',
+    tableName: 'trainers',
     timestamps: true,
     paranoid: true
 });
 
-module.exports = Entrenador;
+module.exports = Trainer;

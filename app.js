@@ -1,5 +1,5 @@
 const express = require('express');
-const entrenadorRoutes = require('./routes/entrenadorRoutes');
+const Routes = require('./routes/Routes');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -9,7 +9,7 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // Rutas
-app.use('/', entrenadorRoutes);
+app.use('/', Routes);
 
 // Iniciar el servidor
 app.listen(port, () => {
