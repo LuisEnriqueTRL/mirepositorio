@@ -2,6 +2,14 @@ const express = require('express');
 const router = express.Router();
 const trainerController = require('../controllers/trainerController');
 const pokemonController = require('../controllers/pokemonController');
+const loginController = require('../controllers/loginController');
+const userController = require('../controllers/userController');
+const authenticateToken = require('../middleware/authMiddleware');
+
+// Ruta para el login
+router.post('/login', loginController.login);
+// Ruta para el registro
+router.post('/register', userController.register);
 
 
 router.get('/trainer', trainerController.getAllTrainers);
@@ -33,9 +41,9 @@ router.post('/trainer', trainerController.createTrainer);
   "num_pokedex": 25
 }
 */
-router.put('/trainer/:id', trainerController.updateTrainer);
+router.put('/trainer/:id', authenticateToken, trainerController.updateTrainer);
 //DELETE
 //http://localhost:3000/trainer/2
-router.delete('/trainer/:id', trainerController.deleteTrainer);
+router.delete('/trainer/:id', authenticateToken, trainerController.deleteTrainer);
 
 module.exports = router;
