@@ -4,7 +4,15 @@ const sequelize = require('../config/database'); // Asegúrate de que la ruta se
 class User extends Model {}
 
 User.init({
-    username: {
+    id_company: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true, // Asegúrate de que los nombres de usuario sean únicos

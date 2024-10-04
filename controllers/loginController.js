@@ -3,17 +3,17 @@ const User = require('../models/User'); // Asegúrate de que la ruta sea correct
 const bcrypt = require('bcrypt');
 
 exports.login = async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     // Buscar el usuario en la base de datos
-    const user = await User.findOne({ where: { username } });
+    const user = await User.findOne({ where: { email } });
 
     // Verificar si el usuario existe y la contraseña es correcta
     if (user && await bcrypt.compare(password, user.password)) {
       const payload = {
         id: user.id,
-        username: user.username,
+        email: user.email,
         role: 'super_admin', // O recupera el rol del usuario si lo tienes
       };
 

@@ -9,7 +9,16 @@ module.exports = {
         primaryKey: true,
         allowNull: false,
       },
-      username: {
+      id_company: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        unique: true,
+      },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      email: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
@@ -28,9 +37,9 @@ module.exports = {
         allowNull: false,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       },
-      deletedAt: {  // Agrega esta línea
+      deletedAt: {
         type: Sequelize.DATE,
-        allowNull: true, // Puede ser nulo, ya que se usa para eliminaciones suaves
+        allowNull: true,
       },
     });
   },
